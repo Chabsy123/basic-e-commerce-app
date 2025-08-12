@@ -1,10 +1,15 @@
 import { Component, signal } from '@angular/core';
+import { PrimaryButtonComponent } from '../primary-button/primary-button.component';
 
 @Component({
   selector: 'app-header',
-  imports: [],
+  imports: [PrimaryButtonComponent],
   // encapsulate styles which cannot be used outside the component
-  template: `<div class="bg-slate-100 px-4 py-3 shadow-md"><span>My Store</span></div> `,
+  template: `<div class="bg-slate-100 px-4 py-3 shadow-md flex justify-between items-center">
+    <span class="text-xl">My Store</span>
+  <!-- making a square brackets signify a dynamic expression -->
+  <app-primary-button label="Cart"/>
+</div> `,
     //  changing the content here will also update the header in the UI
   styles: `
 
@@ -17,4 +22,10 @@ export class HeaderComponent {
   // you can declare signal
   // access value using ()
   // change using .set(newValue)
+    // cart = signal('Cart');
+
+
+  // showButtonClicked(){
+  //   console.log('clicked');
+  // }
 }
