@@ -1,1 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+// and the global styles are reusable in all the components
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
