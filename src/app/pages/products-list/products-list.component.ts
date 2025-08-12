@@ -1,15 +1,22 @@
 import { Component, signal } from '@angular/core';
 import { product } from '../../model/products.model';
+import { ProductCardComponent } from "./product-card/product-card.component";
 
 @Component({
   selector: 'app-products-list',
-  imports: [],
-  template: ``,
+  imports: [ProductCardComponent],
+  template: `
+  <div class="p-8 grid grid-cols-2 gap-4">
+    @for (product of products(); track product.id){
+     <app-product-card [product]="product"/>
+    }
+  </div>
+  `,
   styles: ``
 })
 export class ProductsListComponent {
-    products= signal<product[]>([
-       {
+  products = signal<product[]>([
+    {
       id: 1,
       title: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops',
       price: 109.95,
@@ -39,5 +46,5 @@ export class ProductsListComponent {
       image: 'https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg',
       stock: 7,
     },
-    ])
+  ])
 }
