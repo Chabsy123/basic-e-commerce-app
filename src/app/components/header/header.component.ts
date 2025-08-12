@@ -1,5 +1,6 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { PrimaryButtonComponent } from '../primary-button/primary-button.component';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-header',
@@ -8,7 +9,7 @@ import { PrimaryButtonComponent } from '../primary-button/primary-button.compone
   template: `<div class="bg-slate-100 px-4 py-3 shadow-md flex justify-between items-center">
     <span class="text-xl">My Store</span>
   <!-- making a square brackets signify a dynamic expression -->
-  <app-primary-button label="Cart"/>
+  <app-primary-button [label]="'Cart (' + cartService.cart().length + ')'" routerLink="/cart" />
 </div> `,
     //  changing the content here will also update the header in the UI
   styles: `
@@ -28,4 +29,6 @@ export class HeaderComponent {
   // showButtonClicked(){
   //   console.log('clicked');
   // }
+  cartService = inject(CartService);
+    //  services serve the functionality in one place to be used in other places
 }
