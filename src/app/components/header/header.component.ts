@@ -32,4 +32,5 @@ export class HeaderComponent {
   // }
   cartService = inject(CartService);
     //  services serve the functionality in one place to be used in other places
+    // cartLabel = computed(() => `Cart (${this.cartService.cart().length})`);
 }

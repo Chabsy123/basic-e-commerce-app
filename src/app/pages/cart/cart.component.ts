@@ -14,7 +14,7 @@ import { OrderSummaryComponent } from './order-summary/order-summary.component';
       @for (item of cartService.cart(); track item.id) {
       <app-cart-item [item]="item" />
       }
-       <app-order-summary/> 
+       <app-order-summary/>
     </div>
   `,
   styles: ``

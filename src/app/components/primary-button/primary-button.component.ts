@@ -12,7 +12,7 @@ import { Component, input, output } from '@angular/core';
 })
 export class PrimaryButtonComponent {
   // declaring inputs for  inputs
-  label = input('');
+  label = input<string>();
 
   btnClicked = output();
 
